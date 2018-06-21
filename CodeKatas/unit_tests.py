@@ -18,7 +18,7 @@ class TestStringMethods(unittest.TestCase):
     def test_return_six_when_add_one_two_three_with_newline(self):
         self.assertEqual(add("1\n2"), 3)
 
-    def test_return_15_when_add_1_2_3_4_5(self):
+    def test_return_sum_when_adding_multiple_numbers(self):
         self.assertEqual(add("1,2,3,4,5"), 15)
 
 
