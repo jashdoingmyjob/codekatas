@@ -10,7 +10,3 @@ def add(num):
     for i in num_list:
         sum = sum+i
     return sum
-
-if __name__ == '__main__':
-    numbers = raw_input("\nEnter 1-3 numbers separated by commas.\n")
-    print(add(numbers))
