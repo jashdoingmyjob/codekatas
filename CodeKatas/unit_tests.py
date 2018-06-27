@@ -23,6 +23,8 @@ class TestStringMethods(unittest.TestCase):
 
     def test_return_sum_when_adding_multiple_numbers(self):
         self.assertEqual(add("1,2,3,4,5"), 15)
+    def test_return_sum_when_using_custom_delimiter(self):
+        self.assertEqual(add("//;\n1;2"), 3)
 
 
 if __name__ == '__main__':
