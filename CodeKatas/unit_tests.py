@@ -25,6 +25,8 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(add("1,2,3,4,5"), 15)
     def test_return_sum_when_using_custom_delimiter(self):
         self.assertEqual(add("//;\n1;2"), 3)
+    def test_throw_exception_when_add_negatives(self):
+        with self.assertRaises(Exception): add("-1")
 
 
 if __name__ == '__main__':
