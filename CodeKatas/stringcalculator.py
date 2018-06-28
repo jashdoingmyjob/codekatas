@@ -1,5 +1,9 @@
 import re
 
+#add
+#INPUTS: num = string passed in
+#OUTPUTS: sum of the numbers inputed if no exception raised. Or returns 0 if empty string
+#FUNCTIONALITY: adds numbers passed in as a string by user
 def add(num):
     if not num:
         return 0
@@ -15,6 +19,10 @@ def add(num):
     return sum
 
 
+#check_negatives_exist
+#INPUTS: number = string passed in,   delim = delimiter set
+#OUTPUTS: if contains negative numbers then raise exception. else return nothing
+#FUNCTIONALITY: Helper function that checks if user inputted negative numbers.
 def check_negatives_exist(number, delim):
     if '-' in number and '-' is not delim:
         #print("first if")
@@ -29,6 +37,7 @@ def check_negatives_exist(number, delim):
     else:
         return
 
+#only use if want to manually test
 if __name__ == '__main__':
     input = raw_input("\nEnter numbers to add\n")
     print(add(input))
