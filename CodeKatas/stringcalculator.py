@@ -4,10 +4,16 @@ def add(num):
     if not num:
         return 0
     delimiter = ','
+    negatives =[]
     if "//" in num:
         delimiter = num[num.find("/")+2]
     if '-' in num and '-' is not delimiter:
-        raise Exception(('No negatives: %s', num))
+        #print("first if")
+        num_list = num.split(delimiter)
+        for i in num_list:
+            if '-' in i:
+                negatives.append(i)
+        raise Exception(('No negatives: %s', negatives))
 
     num = num.replace('\n',delimiter)
     print(num)
@@ -16,7 +22,3 @@ def add(num):
     for i in num_list:
         sum = sum+i
     return sum
-
-# def negative_exception(negative_number):
-#     exception_string = ("No negatives allowed: %s", negative_number)
-#     return exception_string
