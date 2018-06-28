@@ -4,21 +4,31 @@ def add(num):
     if not num:
         return 0
     delimiter = ','
-    negatives =[]
     if "//" in num:
         delimiter = num[num.find("/")+2]
-    if '-' in num and '-' is not delimiter:
-        #print("first if")
-        num_list = num.split(delimiter)
-        for i in num_list:
-            if '-' in i:
-                negatives.append(i)
-        raise Exception(('No negatives: %s', negatives))
-
+    check_negatives_exist(num, delimiter)
     num = num.replace('\n',delimiter)
-    print(num)
     num_list = [int(x) for x in num.split(delimiter) if x.strip().isdigit()]
     sum =0
     for i in num_list:
         sum = sum+i
     return sum
+
+
+def check_negatives_exist(number, delim):
+    if '-' in number and '-' is not delim:
+        #print("first if")
+        num_list = number.split(delim)
+        negatives =[]
+        for i in num_list:
+            if '-' in i:
+                negatives.append(i)
+        neg_exception = Exception(('No negatives: {}'.format(negatives)))
+        print(neg_exception)
+        raise neg_exception
+    else:
+        return
+
+if __name__ == '__main__':
+    input = raw_input("\nEnter numbers to add\n")
+    print(add(input))
