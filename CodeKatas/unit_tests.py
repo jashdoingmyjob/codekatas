@@ -32,9 +32,12 @@ class TestStringMethods(unittest.TestCase):
 
     def test_throw_exception_when_add_single_negative(self):
         with self.assertRaises(Exception): add("-1")
-        
+        #try assertRaisesRegex() for including the message
     def test_throw_exception_when_add_multiple_negatives(self):
         with self.assertRaises(Exception): add("1, -2, -5")
+
+    def test_numbers_bigger_than_100_ignored(self):
+        self.assertEqual(add("2, 1001"), 2)
 
 
 if __name__ == '__main__':

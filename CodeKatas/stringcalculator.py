@@ -1,4 +1,3 @@
-import re
 
 #add
 #INPUTS: num = string passed in
@@ -10,11 +9,13 @@ def add(num):
     delimiter = ','
     if "//" in num:
         delimiter = num[num.find("/")+2]
-    check_negatives_exist(num, delimiter)
+    _check_negatives_exist(num, delimiter)
     num = num.replace('\n',delimiter)
     num_list = [int(x) for x in num.split(delimiter) if x.strip().isdigit()]
     sum =0
     for i in num_list:
+        if i > 1000:
+            i =0
         sum = sum+i
     return sum
 
@@ -23,7 +24,7 @@ def add(num):
 #INPUTS: number = string passed in,   delim = delimiter set
 #OUTPUTS: if contains negative numbers then raise exception. else return nothing
 #FUNCTIONALITY: Helper function that checks if user inputted negative numbers.
-def check_negatives_exist(number, delim):
+def _check_negatives_exist(number, delim):
     if '-' in number and '-' is not delim:
         #print("first if")
         num_list = number.split(delim)
