@@ -8,7 +8,10 @@ def add(num):
         return 0
     delimiter = ','
     if "//" in num:
-        delimiter = num[num.find("/")+2]
+        delimiter_start = num.find("/")+2
+        before_new_line, num = num.split('\n', 1)
+        delimiter = before_new_line[delimiter_start:]
+        
     _check_negatives_exist(num, delimiter)
     num = num.replace('\n',delimiter)
     num_list = [int(x) for x in num.split(delimiter) if x.strip().isdigit()]

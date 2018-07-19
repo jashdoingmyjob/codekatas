@@ -39,6 +39,12 @@ class TestStringMethods(unittest.TestCase):
     def test_numbers_bigger_than_100_ignored(self):
         self.assertEqual(add("2, 1001"), 2)
 
+    def test_return_sum_with_three_length_delimiter(self):
+        self.assertEqual(add("//***\n1***2***3"), 6)
+
+    def test_return_sum_with_five_length_delimiter(self):
+        self.assertEqual(add("//&&&&&\n55&&&&&100000&&&&&1"), 56)
+    
 
 if __name__ == '__main__':
     unittest.main()
